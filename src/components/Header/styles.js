@@ -4,7 +4,7 @@ export const ContainerHeader = styled.header `
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 15px 10px 15px;
+    padding: 15px 20px 15px 20px;
 
     div, nav{
         display: flex;
@@ -48,6 +48,7 @@ export const TituloSite = styled.div `
 
     span{
         font-size: 0.9em;
+        color: rgba(34, 34, 34, 0.7);
     }
 
     @media screen and (min-width: 520px){
