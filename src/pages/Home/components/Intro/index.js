@@ -11,40 +11,37 @@ import { ContainerIntro, Presentation, Cards } from './styles';
 
 export default function Intro(){
     const [ cards, setCards ] = useState([
-        {id: '1', photo: card1, caption: 'Hiking'},
-        {id: '2', photo: card2, caption: 'Skiing'},
-        {id: '3', photo: card3, caption: 'Hotels'},
-        {id: '4', photo: card4, caption: 'Food'}
+        {id: '1', photo: card1, caption: 'Hiking', color: 'rgb(241, 183, 83)'},
+        {id: '2', photo: card2, caption: 'Skiing', color: 'rgb(89, 179, 239)'},
+        {id: '3', photo: card3, caption: 'Hotels', color: 'rgb(241, 83, 82)'},
+        {id: '4', photo: card4, caption: 'Food', color: 'rgb(183, 82, 241)'}
     ]);
     
     return(
         <ContainerIntro>
             <Presentation>
-                <h1>New adventure awaits you in the scapes of <span>Switzerland</span></h1>
-                <p>Explore many places, trails ranging from hiking to biking and handful of other activities. Plan your visit with a help of a vast list of accommodation and other facilities.</p>
                 <div>
+                    <h1>New adventure awaits you in the scapes of <span>Switzerland</span></h1>
+                    <p>Explore many places, trails ranging from hiking to biking and handful of other activities. Plan your visit with a help of a vast list of accommodation and other facilities.</p>
                     <div>
-                        <BiSearch size={24} color="#909090" className='icon-search'/>
-                        <input type='search' placeholder='Search keyword'/>
+                        <div>
+                            <BiSearch size={24} color="#909090" className='icon-search'/>
+                            <input type='search' placeholder='Search keyword'/>
+                        </div>
+                        <FaFolderOpen size={23} color="#909090" className='btn-category'/>
+                        <GiPositionMarker size={23} color="#909090" className='btn-position'/>
+                        <button>Search</button>
                     </div>
-                    <FaFolderOpen size={23} color="#909090" className='btn-category'/>
-                    <GiPositionMarker size={23} color="#909090" className='btn-position'/>
-                    <button>Search</button>
                 </div>
+                <div></div>
             </Presentation>
             <Cards>
-                <div>
-                    <span>More categories</span>
-                    <BsArrowRight size={25} color="#fff"/>
-                </div>
-                <div>
                     {cards.map(card => (
                         <div key={card.id}>
-                            <img src={card.photo} alt='Card Photo'/>
+                            <img src={card.photo} alt='Card Photo' style={{borderBottom: '8px solid ' + card.color}}/>
                             <h3>{card.caption}</h3>
                         </div>
                     ))}
-                </div>
             </Cards>
         </ContainerIntro>
     );

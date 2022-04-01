@@ -24,7 +24,7 @@ export const Logo = styled.div `
         width: 100%;
     }
 
-    @media screen and (min-width: 520px){
+    @media screen and (min-width: 600px){
         width: 60px;
     }
 `
@@ -51,7 +51,7 @@ export const TituloSite = styled.div `
         color: rgba(34, 34, 34, 0.7);
     }
 
-    @media screen and (min-width: 520px){
+    @media screen and (min-width: 600px){
         margin-left: 15px;
 
         a{
