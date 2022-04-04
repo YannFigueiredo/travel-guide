@@ -33,6 +33,7 @@ const globalStyles = createGlobalStyle `
         font-family: 'Nunito Sans', sans-serif;
         font-weight: 400;
         font-size: 1.1em;
+        cursor: pointer;
     }
 `
 

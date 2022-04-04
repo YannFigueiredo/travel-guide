@@ -3,6 +3,10 @@ import bg from '../../../../assets/intro-bg.jpg';
 
 export const ContainerIntro = styled.section`
     padding: 60px 20px 0 20px;
+
+    @media screen and (min-width: 992px) {
+        padding: 30px 40px 30px 40px;
+    }
 `
 
 export const Presentation = styled.div`

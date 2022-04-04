@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 export const ContainerActivities = styled.section`
     padding: 40px 15px 0 15px;
+
+    @media screen and (min-width: 992px) {
+        padding: 30px 40px 30px 40px;
+    }
 `
 
 export const Activities = styled.div`
@@ -10,6 +14,14 @@ export const Activities = styled.div`
     grid-template-rows: auto;
     grid-gap: 15px;
     margin-top: 40px;
+
+    @media screen and (min-width: 600px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (min-width: 992px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
 `
 
 export const Activitie = styled.article`
