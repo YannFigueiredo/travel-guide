@@ -45,7 +45,7 @@ export default function Header(){
                 {menu &&
                     <Menu>
                         <Link to='/'><li>Home</li></Link>
-                        <Link to='#'><li>News</li></Link>
+                        <Link to='/news'><li>News</li></Link>
                         <Link to='/help'><li>Help</li></Link>
                     </Menu>
                 }
