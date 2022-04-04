@@ -5,7 +5,7 @@ import act2 from '../../../../assets/intro-act2.jpg';
 import act3 from '../../../../assets/intro-act3.jpg';
 import act4 from '../../../../assets/intro-act4.jpg';
 
-import { Activitie } from "./style";
+import { ContainerActivities, Activities, Activitie, Photo, Title, Local, Category } from "./style";
 
 export default function LatestActivities(){
     const [ activies, setActivities ] = useState([
@@ -16,20 +16,26 @@ export default function LatestActivities(){
     ]);
     
     return(
-        <section>
-            {activies.map(act => (
-                <Activitie key={act.id}>
-                    <div>
-                        <img src={act.photo} alt={act.title}/>
-                    </div>
-                    <div>
-                        <h3>{act.title}</h3>
-                        <span>{act.caption}</span>
-                    </div>
-                    <span>{act.local}</span>
-                    <span>{act.category}</span>
-                </Activitie>
-            ))}
-        </section>
+        <ContainerActivities>
+            <h2>Latest activities</h2>
+            <Activities>
+                {activies.map(act => (
+                    <Activitie key={act.id}>
+                        <Photo>
+                            <img src={act.photo} alt={act.title}/>
+                        </Photo>
+                        <Title>
+                            <h3>{act.title}</h3>
+                            <span>{act.caption}</span>
+                        </Title>
+                        <Local>
+                            <GiPositionMarker size={15} color='rgb(100, 100, 100)'/>
+                            <span>{act.local}</span>
+                        </Local>
+                        <Category>{act.category}</Category>
+                    </Activitie>
+                ))}
+            </Activities>
+        </ContainerActivities>
     );
 }

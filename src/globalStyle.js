@@ -15,6 +15,10 @@ const globalStyles = createGlobalStyle `
         color: #222222;
     }
 
+    h2{
+        font-size: 2em;
+    }
+
     a{
         text-decoration: none;
         color: rgba(34, 34, 34, 0.7);
