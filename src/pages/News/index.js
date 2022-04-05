@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { BsFacebook, BsTwitter, BsYoutube } from 'react-icons/bs';
-import { ContainerNews } from './style.js';
+import { ContainerNews, IntroNews, SectionNews, Category, Banner, Description } from './style.js';
 import news1 from '../../assets/news1.jpg';
 import news2 from '../../assets/news2.jpg';
 import news3 from '../../assets/news3.jpg';
@@ -20,29 +20,37 @@ export default function News(){
 
     return(
         <ContainerNews>
-            <section>
-                <h1>News & Tips</h1>
+            <IntroNews>
+                <h1>News <br/><span>& Tips</span></h1>
                 <p>
                     Aliquam erat volutpat. Maecenas a nunc velit. Fusce dui orci, auctor quis leo sit amet, scelerisque gravida lectus. Suspendisse potenti.
                 </p>
                 <hr/>
                 <div>
-                    <BsFacebook size={25}/>
-                    <BsTwitter size={25}/>
-                    <BsYoutube size={25}/>
+                    <BsFacebook className='btn-social' size={20} color='#fff' style={{
+                        backgroundColor: 'rgb(23, 120, 242)'
+                    }}/>
+                    <BsTwitter className='btn-social' size={20} color='#fff' style={{
+                        backgroundColor: 'rgb(29, 161, 242)'
+                    }}/>
+                    <BsYoutube className='btn-social' size={20} color='#fff' style={{
+                        backgroundColor: 'rgb(255, 0, 0)'
+                    }}/>
                 </div>
-            </section>
-            <section>
+            </IntroNews>
+            <SectionNews>
                 {news.map(item => (<article key={item.id}>
-                    <div>
+                    <Banner>
                         <span>{item.date}</span>
                         <img src={item.photo} alt={item.title}/>
-                    </div>
+                    </Banner>
                     <h3>{item.title}</h3>
-                    <span>{item.description}</span>
-                    {item.categories.map((category, key) => (<span key={key}>{category}</span>))}
+                    <Description>{item.description}</Description>
+                    <div>
+                        {item.categories.map((category, key) => (<Category key={key}>{category}</Category>))}
+                    </div>
                 </article>))}
-            </section>
+            </SectionNews>
         </ContainerNews>
     );
 }

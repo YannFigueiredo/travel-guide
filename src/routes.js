@@ -4,6 +4,7 @@ import Help from './pages/Help';
 import News from './pages/News';
 
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 const Rotas = () => {
     return(
@@ -14,6 +15,7 @@ const Rotas = () => {
                 <Route path='/help' element={<Help/>}/>
                 <Route path='/news' element={<News/>}/>
             </Routes>
+            <Footer/>
         </BrowserRouter>
     );
 }
