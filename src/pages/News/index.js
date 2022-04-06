@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { BsFacebook, BsTwitter, BsYoutube } from 'react-icons/bs';
 import { ContainerNews, IntroNews, SectionNews, Category, Banner, Description } from './style.js';
 import news1 from '../../assets/news1.jpg';
 import news2 from '../../assets/news2.jpg';
@@ -7,6 +6,8 @@ import news3 from '../../assets/news3.jpg';
 import news4 from '../../assets/news4.jpg';
 import news5 from '../../assets/news5.jpg';
 import news6 from '../../assets/news6.jpg';
+
+import Social from '../../components/Social';
 
 export default function News(){
     const [ news, setNews ] = useState([
@@ -26,17 +27,7 @@ export default function News(){
                     Aliquam erat volutpat. Maecenas a nunc velit. Fusce dui orci, auctor quis leo sit amet, scelerisque gravida lectus. Suspendisse potenti.
                 </p>
                 <hr/>
-                <div>
-                    <BsFacebook className='btn-social' size={20} color='#fff' style={{
-                        backgroundColor: 'rgb(23, 120, 242)'
-                    }}/>
-                    <BsTwitter className='btn-social' size={20} color='#fff' style={{
-                        backgroundColor: 'rgb(29, 161, 242)'
-                    }}/>
-                    <BsYoutube className='btn-social' size={20} color='#fff' style={{
-                        backgroundColor: 'rgb(255, 0, 0)'
-                    }}/>
-                </div>
+                <Social/>
             </IntroNews>
             <SectionNews>
                 {news.map(item => (<article key={item.id}>

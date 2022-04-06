@@ -33,19 +33,6 @@ export const IntroNews = styled.section`
         border: 4px solid rgb(230, 228, 227);
         margin: 35px 0px;
     }
-
-    div .btn-social{
-        margin-right: 7px;
-        transition: all ease .3s;
-        cursor: pointer;
-        box-sizing: content-box;
-        border-radius: 50%;
-        padding: 8px;
-
-        &:hover{
-            transform: scale(1.1);
-        }
-    }
 `
 
 export const SectionNews = styled.section`
