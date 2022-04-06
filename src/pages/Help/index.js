@@ -1,7 +1,7 @@
 import Social from '../../components/Social';
 import { HiOutlineOfficeBuilding } from 'react-icons/hi';
 import { GiSoccerBall, GiForkKnifeSpoon } from 'react-icons/gi';
-import { ContainerHelp, IntroHelp, Contact } from './style';
+import { ContainerHelp, IntroHelp, Contact, Options, Option } from './style';
 
 export default function Help(){
     return(
@@ -24,29 +24,35 @@ export default function Help(){
                 </div>
                 <hr/>
             </Contact>
-            <div>
-                <div>
-                    <HiOutlineOfficeBuilding/>
+            <Options>
+                <Option>
+                    <div>
+                        <HiOutlineOfficeBuilding className='icone' size={50} color='rgb(240, 83, 81)'/>  
+                    </div>
                     <div>
                         <h3>Accommodation</h3>
                         <p>Nunc ut ornare est. Sed lacus ipsum, maximus quis mattis.</p>
                     </div>
-                </div>
-                <div>
-                    <GiSoccerBall/>
+                </Option>
+                <Option>
+                    <div>
+                        <GiSoccerBall className='icone' size={50} color='rgb(241, 183, 82)'/>
+                    </div>
                     <div>
                         <h3>Activities</h3>
                         <p>Duis eget imperdiet risus, non ultricies dui quam semper.</p>
                     </div>
-                </div>
-                <div>
-                    <GiForkKnifeSpoon/>
+                </Option>
+                <Option>
+                    <div>
+                        <GiForkKnifeSpoon className='icone' size={50} color='rgb(183, 83, 239)'/>
+                    </div>
                     <div>
                         <h3>Food</h3>
                         <p>Proin viverra mauris vitae eros interdum posuere phasellus </p>
                     </div>
-                </div>
-            </div>
+                </Option>
+            </Options>
         </ContainerHelp>
     );
 }
