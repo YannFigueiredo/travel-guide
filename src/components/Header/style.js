@@ -5,6 +5,12 @@ export const ContainerHeader = styled.header `
     align-items: center;
     justify-content: space-between;
     padding: 15px 20px 15px 20px;
+    background-color: ${props => props.posScroll > 150 ? 'white' : 'transparent'};
+    position: ${props => props.posScroll > 150 ? 'fixed' : 'absolute'};
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
 
     div, nav{
         display: flex;
@@ -41,14 +47,15 @@ export const TituloSite = styled.div `
     a{
         font-family: 'Barlow', sans-serif;
         font-weight: 900;
-        color: #222222;
+        color: ${props => props.theme};
         text-transform: uppercase;
         font-size: 1.4em;
     }
 
     span{
         font-size: 0.9em;
-        color: rgba(34, 34, 34, 0.7);
+        color: ${props => props.theme};
+        display: ${props => props.posScroll > 150 ? 'none' : 'inline-block'};
     }
 
     @media screen and (min-width: 600px){
@@ -69,7 +76,8 @@ export const Menu = styled.ul `
     right: 0;
     width: 100vw;
     height: 100vh;
-    padding: 75px 40px 0px 40px;    
+    padding: 75px 40px 0px 40px;
+    z-index: 998;    
     
     a, li{
         font-size: 1.17em;

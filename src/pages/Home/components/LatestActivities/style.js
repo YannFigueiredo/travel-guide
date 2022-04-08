@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ContainerActivities = styled.section`
-    padding: 40px 15px 0 15px;
+    padding: 40px 15px 40px 15px;
 
     @media screen and (min-width: 992px) {
         padding: 30px 40px 30px 40px;

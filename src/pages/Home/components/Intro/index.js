@@ -8,6 +8,8 @@ import card2 from '../../../../assets/intro-skiing.jpg';
 import card3 from '../../../../assets/intro-hotels.jpg';
 import card4 from '../../../../assets/intro-food.jpg';
 import { ContainerIntro, Presentation, Cards } from './styles';
+import { useContext, useEffect } from 'react';
+import { ThemeContext } from '../../../../contexts/Themes';
 
 export default function Intro(){
     const [ cards, setCards ] = useState([
@@ -16,6 +18,16 @@ export default function Intro(){
         {id: '3', photo: card3, caption: 'Hotels', color: 'rgb(241, 83, 82)'},
         {id: '4', photo: card4, caption: 'Food', color: 'rgb(183, 82, 241)'}
     ]);
+
+    const { headerTheme, setHeaderTheme } = useContext(ThemeContext);
+    
+    useEffect(() => {setHeaderTheme('#222222');}, []);
+
+    useEffect(() => {
+        window.addEventListener('scroll', function(e){
+            setHeaderTheme('#222222');
+        });
+    }, []);
     
     return(
         <ContainerIntro>

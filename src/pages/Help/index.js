@@ -2,8 +2,24 @@ import Social from '../../components/Social';
 import { HiOutlineOfficeBuilding } from 'react-icons/hi';
 import { GiSoccerBall, GiForkKnifeSpoon } from 'react-icons/gi';
 import { ContainerHelp, IntroHelp, Contact, Options, Option } from './style';
+import { ThemeContext } from '../../contexts/Themes';
+import { useContext, useEffect } from 'react';
 
 export default function Help(){
+    const { headerTheme, setHeaderTheme } = useContext(ThemeContext);
+    
+    useEffect(() => {setHeaderTheme('#fff');}, []);
+
+    useEffect(() => {
+        window.addEventListener('scroll', function(e){
+            if(window.scrollY > 150){
+                setHeaderTheme('#222222');
+            }else{
+                setHeaderTheme('#fff');
+            }
+        });
+    }, []);
+
     return(
         <ContainerHelp>
             <IntroHelp>

@@ -6,11 +6,10 @@ export const ContainerHelp = styled.div`
 `
 
 export const IntroHelp = styled.div`    
-    background: rgba(0, 0, 0, .5);
-    background-image: url(${bg});
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(${bg});
     background-size: cover;
     background-position: center center;
-    padding: 60px 20px 60px 20px;
+    padding: 120px 20px 60px 20px;
 
     h1{
         color: white;
@@ -38,7 +37,7 @@ export const IntroHelp = styled.div`
     }
 
     @media screen and (min-width: 992px) {
-        padding: 60px 40px 60px 40px;
+        padding: 120px 40px 60px 40px;
     }
 `
 
