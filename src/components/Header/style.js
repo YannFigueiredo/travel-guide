@@ -81,6 +81,7 @@ export const Menu = styled.ul `
     
     a, li{
         font-size: 1.17em;
+        color: ${props => props.theme};
     }
 
     li{

@@ -9,7 +9,20 @@ import news6 from '../../assets/news6.jpg';
 
 import Social from '../../components/Social';
 
+import { ThemeContext } from '../../contexts/Themes';
+import { useContext, useEffect } from 'react';
+
 export default function News(){
+    const { headerTheme, setHeaderTheme } = useContext(ThemeContext);
+    
+    useEffect(() => {setHeaderTheme('#222222');}, []);
+
+    useEffect(() => {
+        window.addEventListener('scroll', function(e){
+            setHeaderTheme('#222222');
+        });
+    }, []);
+
     const [ news, setNews ] = useState([
         {id: '1', title: 'Changes to routes in Zermatt and around Matterhorn', photo: news1, date: '04 apr 2022', description: 'Etiam elementum, libero consectetur posuere ultricies, sem urna consequat dui, a lobortis massa orci id lectus. Curabitur ac semper mauris. Nam sed odio nec ipsum auctor maximus id eu risus. Suspendisse faucibus risus urna, ut aliquet mauris finibus eu.', categories: ['News']},
         {id: '2', title: "Don't miss these special offers, list of hotels included", photo: news2, date: '04 apr 2022', description: 'Cras placerat vulputate sapien, id sollicitudin est dictum ut. Praesent ut molestie tortor. Vestibulum volutpat orci non dolor ullamcorper dapibus id ac elit. Curabitur pharetra turpis augue, id elementum ante ornare nec. In mollis sagittis lectus, eget facilisis neque. Morbi tristique urna odio.', categories: ['Tips']},

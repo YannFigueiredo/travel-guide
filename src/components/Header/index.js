@@ -10,8 +10,8 @@ export default function Header(){
     const [menu, setMenu] = useState(false);
     const [ posScroll, setPosScroll ] = useState(window.scrollY);
 
-    const btnFecharMenu = useRef(null);
-    const btnMenu = useRef(null);
+    //const btnFecharMenu = useRef(null);
+    //const btnMenu = useRef(null);
 
     const { headerTheme, setHeaderTheme } = useContext(ThemeContext);
 
@@ -25,7 +25,7 @@ export default function Header(){
         });
 
         if(window.innerWidth >= 992){
-            setMenu(true)
+            setMenu(true);
         }else{
             setMenu(false);
         }
@@ -45,6 +45,20 @@ export default function Header(){
         }
     }, [menu]);
 
+    useEffect(() => {
+        var isFullScreen = document.fullScreen || document.webkitIsFullScreen || document.mozFullScreen;
+
+        document.addEventListener('webkitfullscreenchange mozfullscreenchange fullscreenchange', function(){
+            console.log('ola');
+
+            if(isFullScreen){
+                console.log('tela cheia');
+            }else{
+                console.log('tela nao cheia');
+            }
+        });
+    }, []);
+
     return(
         <ContainerHeader theme={headerTheme} posScroll={posScroll}>
             <div>
@@ -59,12 +73,12 @@ export default function Header(){
                 </TituloSite>
             </div>
             <nav>
-                <HiMenu size={25} color={headerTheme} style={{cursor: 'pointer', display: window.innerWidth >= 992 ? 'none' : 'block'}} onClick={() => {setMenu(!menu)}} ref={btnMenu}/>
+                <HiMenu size={25} color={headerTheme} style={{cursor: 'pointer', display: window.innerWidth >= 992 ? 'none' : 'block'}} onClick={() => {setMenu(!menu)}}/>
                 {menu &&
-                    <Menu>
-                        <Link to='/'><li>Home</li></Link>
-                        <Link to='/news'><li>News</li></Link>
-                        <Link to='/help'><li>Help</li></Link>
+                    <Menu theme={window.innerWidth < 992 ? 'current' : headerTheme}>
+                        <Link to='/' onClick={window.innerWidth >= 992 ? ()=>{} : ()=>{setMenu(!menu)}}><li>Home</li></Link>
+                        <Link to='/news' onClick={window.innerWidth >= 992 ? ()=>{} : ()=>{setMenu(!menu)}}><li>News</li></Link>
+                        <Link to='/help' onClick={window.innerWidth >= 992 ? ()=>{} : ()=>{setMenu(!menu)}}><li>Help</li></Link>
                     </Menu>
                 }
                 {menu && 
@@ -83,7 +97,7 @@ export default function Header(){
                         boxSizing: 'content-box',
                         zIndex: '999',
                         display: window.innerWidth >= 992 ? 'none' : 'block'
-                    }} onClick={() => {setMenu(!menu)}} ref={btnFecharMenu}/>
+                    }} onClick={() => {setMenu(!menu)}}/>
                 }
             </nav>
         </ContainerHeader>
