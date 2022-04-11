@@ -73,6 +73,25 @@ export const TituloSite = styled.div `
     }
 `
 
+export const NavArea = styled.nav `
+    svg:nth-child(1){
+        cursor: pointer;
+    }
+
+    svg:nth-child(2){
+        font-family: 'Barlow', sans-serif;
+        font-weight: 900;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: rgb(242, 83, 83);
+        padding: 10px 20px;
+        cursor: pointer;
+        box-sizing: content-box;
+        z-index: 999;
+    }
+`
+
 export const Menu = styled.ul `
     list-style: none;
     background-color: #fff;
