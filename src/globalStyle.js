@@ -21,7 +21,6 @@ const globalStyles = createGlobalStyle `
 
     a{
         text-decoration: none;
-        color: rgba(34, 34, 34, 0.7);
     }
 
     button{

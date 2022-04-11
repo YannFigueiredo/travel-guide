@@ -4,31 +4,42 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { ContainerHeader, Logo, TituloSite, Menu } from './style';
 import { Link } from 'react-router-dom';
 import { ThemeContext } from '../../contexts/Themes';
-import { useState, useEffect, useRef, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
 export default function Header(){
-    const [menu, setMenu] = useState(false);
+    const [ menu, setMenu ] = useState(window.innerWidth >= 992 ? true : false);
+    const [ mobile, setMobile ] = useState(window.innerWidth >= 992 ? false : true);
     const [ posScroll, setPosScroll ] = useState(window.scrollY);
+    const [ pageActive, setPageActive ] = useState();
 
-    //const btnFecharMenu = useRef(null);
-    //const btnMenu = useRef(null);
+    const { headerTheme } = useContext(ThemeContext);
 
-    const { headerTheme, setHeaderTheme } = useContext(ThemeContext);
+    useEffect(() => {
+        switch(window.location.pathname){
+            case '/':
+                setPageActive('1');
+                break;
+            case '/news':
+                setPageActive('2');
+                break;
+            case '/help':
+                setPageActive('3');
+                break;
+            default:
+                break;
+        }
+    }, [window.location.pathname]);
 
     useEffect(() => {
         window.addEventListener('resize', function(){
             if(window.innerWidth >= 992){
-                setMenu(true)
+                setMobile(false);
+                setMenu(true);
             }else{
+                setMobile(true);
                 setMenu(false);
             }
-        });
-
-        if(window.innerWidth >= 992){
-            setMenu(true);
-        }else{
-            setMenu(false);
-        }
+        })
     }, []);
 
     useEffect(() => {
@@ -45,44 +56,30 @@ export default function Header(){
         }
     }, [menu]);
 
-    useEffect(() => {
-        var isFullScreen = document.fullScreen || document.webkitIsFullScreen || document.mozFullScreen;
-
-        document.addEventListener('webkitfullscreenchange mozfullscreenchange fullscreenchange', function(){
-            console.log('ola');
-
-            if(isFullScreen){
-                console.log('tela cheia');
-            }else{
-                console.log('tela nao cheia');
-            }
-        });
-    }, []);
-
     return(
         <ContainerHeader theme={headerTheme} posScroll={posScroll}>
             <div>
-                <Logo>
+                <Logo posScroll={posScroll}>
                     <Link to='/'>
                         <img src={logo} alt='Logo do site'/>
                     </Link>
                 </Logo>
                 <TituloSite theme={headerTheme} posScroll={posScroll}>
                     <Link to='/'>Travel Guide</Link>
-                    <span>Viagens nacionais e internacionais</span>
+                    <span>Switzerland travel guide</span>
                 </TituloSite>
             </div>
             <nav>
-                <HiMenu size={25} color={headerTheme} style={{cursor: 'pointer', display: window.innerWidth >= 992 ? 'none' : 'block'}} onClick={() => {setMenu(!menu)}}/>
+                {menu === false && <HiMenu size={25} color={headerTheme} style={{cursor: 'pointer'}} onClick={() => {setMenu(true)}}/>}
                 {menu &&
-                    <Menu theme={window.innerWidth < 992 ? 'current' : headerTheme}>
-                        <Link to='/' onClick={window.innerWidth >= 992 ? ()=>{} : ()=>{setMenu(!menu)}}><li>Home</li></Link>
-                        <Link to='/news' onClick={window.innerWidth >= 992 ? ()=>{} : ()=>{setMenu(!menu)}}><li>News</li></Link>
-                        <Link to='/help' onClick={window.innerWidth >= 992 ? ()=>{} : ()=>{setMenu(!menu)}}><li>Help</li></Link>
+                    <Menu theme={headerTheme} pageActive={pageActive}>
+                        <Link to='/' onClick={window.innerWidth >= 992 ? ()=>{} : ()=>{setMenu(false)}}><li>Home</li></Link>
+                        <Link to='/news' onClick={window.innerWidth >= 992 ? ()=>{} : ()=>{setMenu(false)}}><li>News</li></Link>
+                        <Link to='/help' onClick={window.innerWidth >= 992 ? ()=>{} : ()=>{setMenu(false)}}><li>Help</li></Link>
                     </Menu>
                 }
-                {menu && 
-                    <AiOutlineClose size={20} color="#fff" style={{
+                {menu && mobile &&
+                    (<AiOutlineClose size={20} color="#fff" style={{
                         fontFamily: 'Barlow',
                         fontWeight: '900',
                         position: 'absolute',
@@ -96,8 +93,7 @@ export default function Header(){
                         cursor: 'pointer',
                         boxSizing: 'content-box',
                         zIndex: '999',
-                        display: window.innerWidth >= 992 ? 'none' : 'block'
-                    }} onClick={() => {setMenu(!menu)}}/>
+                    }} onClick={() => {setMenu(false)}}/>)
                 }
             </nav>
         </ContainerHeader>

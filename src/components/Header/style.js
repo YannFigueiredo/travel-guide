@@ -4,7 +4,10 @@ export const ContainerHeader = styled.header `
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 20px 15px 20px;
+    padding-top: ${props => props.posScroll > 150 ? '8px' : '15px'};
+    padding-bottom: ${props => props.posScroll > 150 ? '8px' : '15px'};
+    padding-right: 20px;
+    padding-left: 20px;
     background-color: ${props => props.posScroll > 150 ? 'white' : 'transparent'};
     position: ${props => props.posScroll > 150 ? 'fixed' : 'absolute'};
     top: 0;
@@ -19,19 +22,22 @@ export const ContainerHeader = styled.header `
     }
 
     @media screen and (min-width: 992px) {
-        padding: 30px 40px 30px 40px;
+        padding-top: ${props => props.posScroll > 150 ? '15px' : '30px'};
+        padding-bottom: ${props => props.posScroll > 150 ? '15px' : '30px'};
+        padding-right: 40px;
+        padding-left: 40px;
     }
 `
 
 export const Logo = styled.div `
-    width: 47px;
+    width: ${props => props.posScroll > 150 ? '40px' : '47px'};
 
     img{
         width: 100%;
     }
 
     @media screen and (min-width: 600px){
-        width: 60px;
+        width: ${props => props.posScroll > 150 ? '47px' : '60px'};
     }
 `
 
@@ -81,15 +87,20 @@ export const Menu = styled.ul `
     
     a, li{
         font-size: 1.17em;
-        color: ${props => props.theme};
+        color: rgba(34, 34, 34, 0.7);
+        transition: all ease .5s;
     }
 
     li{
         margin-bottom: 20px;
     }
 
-    li:hover{
-        color: black;
+    a:nth-child(${props => props.pageActive}) li{
+        color: rgb(0, 0, 0);
+    }
+
+    li:hover, a:hover{
+        color: rgb(0, 0, 0);
     }
 
     @media screen and (min-width: 992px) {
@@ -102,11 +113,20 @@ export const Menu = styled.ul `
 
         a, li{
             font-size: 1em;
+            color: ${props => props.theme};
         }
 
         li{
             margin-bottom: 0px;
             margin-left: 40px;
+        }
+
+        a:nth-child(${props => props.pageActive}) li{
+            color: rgb(242, 83, 83);
+        }
+
+        li:hover, a:hover{
+            color: rgb(242, 83, 83);
         }
     }
 `
