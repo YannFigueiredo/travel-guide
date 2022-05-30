@@ -8,63 +8,53 @@ https://travelguideswi.netlify.app/
 Travel Guide é um projeto front-end de um site de guia turístico da Suíça. O site possui três páginas construídas, sendo a página inicial, notícias e ajuda.
 
 ## Layout mobile
-![Mobile 1](https://github.com/acenelio/assets/raw/main/sds1/mobile1.png) ![Mobile 2](https://github.com/acenelio/assets/raw/main/sds1/mobile2.png)
+
+### Home
+<img src="https://github.com/YannFigueiredo/assets/blob/main/travel-guide-mobile-home.gif"  alt="Mobile 1 - Home" width="300">
+
+### News
+<img src="https://github.com/YannFigueiredo/assets/blob/main/travel-guide-mobile-news.gif"  alt="Mobile 2 - News" width="300">
+
+### Help
+<img src="https://github.com/YannFigueiredo/assets/blob/main/travel-guide-mobile-help.gif"  alt="Mobile 3 - Help" width="300">
 
 ## Layout web
-![Web 1](https://github.com/YannFigueiredo/assets/blob/main/travel-guide-desktop-home.gif)
 
-![Web 2](https://github.com/acenelio/assets/raw/main/sds1/web2.png)
+### Home
+<img src="https://github.com/YannFigueiredo/assets/blob/main/travel-guide-desktop-home.gif"  alt="Desktop 1 - Home" width="800">
 
-## Modelo conceitual
-![Modelo Conceitual](https://github.com/acenelio/assets/raw/main/sds1/modelo-conceitual.png)
+### News
+<img src="https://github.com/YannFigueiredo/assets/blob/main/travel-guide-desktop-news.gif"  alt="Desktop 2 - News" width="800">
+
+### Help
+<img src="https://github.com/YannFigueiredo/assets/blob/main/travel-guide-desktop-help.gif"  alt="Desktop 3 - Help" width="800">
 
 # Tecnologias utilizadas
-## Back end
-- Java
-- Spring Boot
-- JPA / Hibernate
-- Maven
-## Front end
-- HTML / CSS / JS / TypeScript
-- ReactJS
-- React Native
-- Apex Charts
-- Expo
-## Implantação em produção
-- Back end: Heroku
+- Linguagens: HTML / CSS / JavaScript / TypeScript
+- Frameworks: ReactJS
+- Bibliotecas: Styled Components / React Hooks / React Router Dom / React Icons
+- Versionamento: Git / Github
+
+# Implantação em produção
 - Front end web: Netlify
-- Banco de dados: Postgresql
 
 # Como executar o projeto
 
-## Back end
-Pré-requisitos: Java 11
+Pré-requisitos: npm ou yarn / NodeJS / git
 
 ```bash
 # clonar repositório
-git clone https://github.com/devsuperior/sds1-wmazoni
-# entrar na pasta do projeto back end
-cd backend
-# executar o projeto
-./mvnw spring-boot:run
-```
-
-## Front end web
-Pré-requisitos: npm / yarn
-
-```bash
-# clonar repositório
-git clone https://github.com/devsuperior/sds1-wmazoni
-# entrar na pasta do projeto front end web
-cd front-web
+git clone https://github.com/YannFigueiredo/travel-guide
+# entrar na pasta do projeto
+cd travel-guide
 # instalar dependências
-yarn install
+npm install --production
 # executar o projeto
-yarn start
+npm run start
 ```
 
 # Autor
 
-Wellington Mazoni de Andrade
+Yann Fabricio Cardoso de Figueiredo
 
-https://www.linkedin.com/in/wmazoni
+https://www.linkedin.com/in/yann-figueiredo-5a5046102/
